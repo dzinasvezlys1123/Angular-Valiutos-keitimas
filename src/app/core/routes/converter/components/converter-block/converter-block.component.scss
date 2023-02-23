@@ -1,0 +1,30 @@
+.converter-block {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+
+    & input {
+        color: black;
+
+        &[type="number"] {
+            font-size: 1.1rem;
+            padding: 0.25rem 0 0.25rem 1rem;
+            border-bottom: 3px solid rgba(255, 195, 0, 0.5);
+        }
+
+        &:focus, &:hover {
+            border-color: rgba(255, 195, 0, 0.75);
+        }
+    }
+
+    & .mat-form-field {
+        width: 100%;
+
+    }
+}
+
+.span-overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

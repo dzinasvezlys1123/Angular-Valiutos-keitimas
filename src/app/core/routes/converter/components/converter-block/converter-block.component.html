@@ -1,0 +1,15 @@
+<div class="converter-block">
+    <mat-form-field appearance="fill">
+        <mat-label>{{ label }}</mat-label>
+        <mat-select [(value)]="value.currency" (valueChange)="handleCurrencyChange($event)">
+          <mat-option *ngFor="let item of items" [value]="item">
+            <div class="flex flex-row gap-1">
+                <b>{{ item['code'] ? item['code'] : ' ' }}</b>&nbsp;
+                <b>{{ item['symbol_native'] ? item['symbol_native'] : ' ' }}</b>&nbsp;
+                <span class="span-overflow">{{ item['name'] }}</span>
+            </div>
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <input type="number" min="1.00" step="0.01" [value]="value.amount" (input)="handleAmountChange($event)">
+</div>

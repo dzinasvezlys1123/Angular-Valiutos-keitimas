@@ -1,0 +1,19 @@
+<div class="navbar">
+    <div class="py-3">
+    </div>
+    <div class="navbar-nav large">
+        <div class="navbar-nav-items">
+        </div>
+    </div>
+    <div class="navbar-nav small">
+        <button mat-button [matMenuTriggerFor]="menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            </button>
+            <button mat-menu-item [routerLink]="['/rates']" routerLinkActive="active">
+            </button>
+        </mat-menu>
+    </div>
+</div>

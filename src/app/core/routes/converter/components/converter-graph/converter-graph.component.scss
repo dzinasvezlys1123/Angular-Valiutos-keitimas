@@ -1,0 +1,24 @@
+.converter-graph {
+    padding: 1rem 0.5rem;
+
+    & .mat-button-toggle-group {
+        width: 100%;
+        justify-content: space-evenly;
+        border: none;
+    }
+
+    & canvas {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    & .mat-button-toggle {
+        background: darken($color: rgb(255, 195, 0), $amount: 1);
+        color: white;
+        font-weight: 500;
+        &-checked {
+            background: lighten($color: rgb(255, 195, 0), $amount: 15);   
+            color: rgb(251, 250, 250);    
+        }
+    }
+}

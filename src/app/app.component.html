@@ -1,0 +1,7 @@
+<router-outlet *ngIf="!loading; else loader"></router-outlet>
+<ng-template #loader>
+    Kraunama...
+    <div class="flex flex-row justify-center items-center h-screen w-full">
+        <div class="lds-circle"><div></div></div>
+    </div>
+</ng-template>

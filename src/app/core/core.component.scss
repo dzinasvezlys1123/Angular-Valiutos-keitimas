@@ -1,0 +1,15 @@
+.page {
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+
+    & main {
+        padding: 2rem 0.5rem;
+    }
+    
+    & footer {
+        margin-top: auto;
+    }
+}

@@ -1,0 +1,48 @@
+<section class="rates">
+    <header>
+ 
+        <p>
+            Select  currency from  list and all the rates (Supported currrencies only).
+        </p>
+    </header>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Base Currency</mat-label>
+            <mat-select [formControl]="baseCurrency">
+              <mat-option *ngFor="let item of currencies" [value]="item">
+                <div class="flex flex-row gap-1">
+                    <b>{{ item['code'] ? item['code'] : ' ' }}</b>&nbsp;
+                    <b>{{ item['symbol_native'] ? item['symbol_native'] : ' ' }}</b>&nbsp;
+                    <span class="span-overflow">{{ item['name'] }}</span>
+                </div>
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </p>
+
+    <div class="currencies">
+        <mat-list *ngIf="!loading; else loader">
+            <mat-list-item *ngFor="let rate of rates">
+                <div class="flex flex-row gap-4">
+                    <div class="flex flex-row gap-1">
+                        <span class="font-bold">
+                            {{rate.symbol_native ? rate.symbol_native : ''}}
+                        </span>
+                        <span class="font-bold">
+                            {{rate.code}}
+                        </span>
+                    </div>
+                    <div class="">
+                        <div mat-line>{{rate.name}}</div>
+                        <div mat-line class="text-lime-400"> {{rate.rate}} </div>
+                    </div>
+                </div>
+            </mat-list-item>
+        </mat-list>
+        <ng-template #loader>
+            <div class="flex flex-row justify-center items-center w-full py-10">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-template>
+    </div>
+</section>

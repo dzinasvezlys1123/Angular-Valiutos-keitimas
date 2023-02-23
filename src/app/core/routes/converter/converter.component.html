@@ -1,0 +1,34 @@
+<section class="converter">
+    <header>
+ 
+        <h1>Converter</h1>
+        <p>
+        </p>
+    </header>
+    <div class="">
+        <h3 class="text-center mb-4" *ngIf="from.value.currency && to.value.currency">
+            <b>{{ from.value.amount | formatMoney : from.value.currency.symbol_native ? from.value.currency.symbol_native : from.value.currency.code }}</b>
+            {{ from.value.currency.name_plural && from.value.amount > 1 ? from.value.currency.name_plural : from.value.currency.name }}
+            <b>=</b>&nbsp;
+            <b>{{ to.value.amount | formatMoney : to.value.currency.symbol_native ? to.value.currency.symbol_native : to.value.currency.code }}</b>
+            {{ to.value.currency.name_plural && to.value.amount > 1 ? to.value.currency.name_plural : to.value.currency.name }}
+        </h3>
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <div class="blocks flex flex-col md:flex-row justify-center items-center gap-5 w-100">
+            <div class="block from">
+                <app-converter-block 
+                [items]="fromEntries" 
+                [formControl]="from"></app-converter-block>
+            </div>
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            <div class="block to">
+                <app-converter-block 
+                [items]="toEntries" 
+                [formControl]="to"></app-converter-block>
+            </div>
+        </div>
+    </div>
+    <div class="graph">
+        <app-converter-graph [change]="change"></app-converter-graph>
+    </div>
+</section>
